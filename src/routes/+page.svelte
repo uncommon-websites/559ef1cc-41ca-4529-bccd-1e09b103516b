@@ -2,159 +2,161 @@
 	import { onMount } from 'svelte';
 
     // Data for sections
-    const navLinks = ["Solutions", "Partner stories", "Integrations", "Events", "Pricing"];
+    const navLinks = ["Rankings", "Best Colleges", "Advice", "Compare Schools", "Scholarships"];
     
     const logos = [
-        { name: "Strava", width: 100 },
-        { name: "piab", width: 60 },
-        { name: "Huel", width: 80 },
-        { name: "swile", width: 70 },
-        { name: "Polestar", width: 110 },
-        { name: "Electrolux Group", width: 120 },
-        { name: "Brex", width: 80 }
+        { name: "Harvard", width: 100 },
+        { name: "MIT", width: 80 },
+        { name: "Stanford", width: 100 },
+        { name: "Yale", width: 80 },
+        { name: "Princeton", width: 110 },
+        { name: "Columbia", width: 120 },
+        { name: "Duke", width: 80 }
     ];
 
     const features = [
         {
-            tag: "AI LEARNING EXPERIENCE",
-            title: "A personal tutor at every learner's fingertips",
+            tag: "COMPREHENSIVE RANKINGS",
+            title: "Compare 1,500+ colleges across 17 ranking factors",
             image: "phone",
             color: "bg-gray-100"
         },
         {
-            tag: "VIRTUAL CLASSROOM",
-            title: "Blended learning streamlined in one platform",
-            image: "video",
+            tag: "DATA-DRIVEN INSIGHTS",
+            title: "Trusted methodology analyzing graduation rates, faculty resources, and more",
+            image: "analytics",
             color: "bg-gray-100"
         },
         {
-            tag: "JUST-IN-TIME LEARNING",
-            title: "Instant search and answers to any question",
+            tag: "SCHOOL COMPARISON",
+            title: "Side-by-side comparison of tuition, acceptance rates, and outcomes",
             image: "search",
             color: "bg-gray-100"
         },
         {
-            tag: "COLLABORATIVE AUTHORING",
-            title: "Beautiful interactive content created at lightning speed",
+            tag: "EXPERT GUIDANCE",
+            title: "College admissions advice from education experts",
             image: "editor",
             color: "bg-gray-100"
         },
         {
-            tag: "LEARNING MANAGEMENT",
-            title: "All your manual learning admin on autopilot",
+            tag: "SCHOLARSHIP FINDER",
+            title: "Discover financial aid opportunities matched to your profile",
             image: "admin",
             color: "bg-gray-100"
         },
         {
-            tag: "LEARNING ANALYTICS",
-            title: "Shareable dashboards and insights in seconds",
-            image: "analytics",
+            tag: "STUDENT REVIEWS",
+            title: "Real perspectives from current students and alumni",
+            image: "video",
             color: "bg-gray-100"
         }
     ];
 
     const testimonials = [
         {
-            quote: "Sana Learn has helped us go from manual, one-size-fits-all onboarding to a fully automated, yet still tailored experience.",
-            name: "Olivia Winkvist",
-            role: "Talent manager at Foodora",
-            avatar: "OW"
+            quote: "U.S. News rankings helped me narrow down my college list from 50 schools to 10 that were actually the right fit for my major and budget.",
+            name: "Sarah Martinez",
+            role: "Freshman at UC Berkeley",
+            avatar: "SM"
         },
         {
-            quote: "The first system I've seen that can truly be an end-to-end learning platform for companies.",
-            name: "Josh Bersin",
-            role: "The Josh Bersin Company",
-            avatar: "JB"
+            quote: "As a guidance counselor, U.S. News is my go-to resource. The methodology is transparent and the data is comprehensive.",
+            name: "Michael Chen",
+            role: "High School Guidance Counselor",
+            avatar: "MC"
         },
          {
-            quote: "After my first demo, I couldn't believe Sana had all the tools I needed to efficiently design and evaluate the learning experience, not to mention a beautiful UI and engaging design.",
-            name: "Ali Friedrich",
-            role: "Director of Learning Experience at Superside",
-            avatar: "AF"
-        },
-        // Adding more to fill the grid as per screenshot
-        {
-            quote: "Sana Learn was the end-to-end learning platform we had been waiting for. It isn't just a tool for L&D or People Partners. It's a tool for everyone.",
-            name: "Amber de Wolde",
-            role: "Senior People Partner at Veriff",
-            avatar: "AW"
+            quote: "The comparison tool made it so easy to see which schools offered the best value for my intended major. I found my dream school!",
+            name: "Emily Johnson",
+            role: "Sophomore at Northwestern",
+            avatar: "EJ"
         },
         {
-            quote: "This isn't just another learning platform. Sana is something unique and powerful, in equal measure.",
-            name: "Luke O'Mahoney",
-            role: "People Experience Advisor",
-            avatar: "LO"
+            quote: "U.S. News gave us the confidence that we were making an informed decision. The rankings and data analysis are unmatched.",
+            name: "David Thompson",
+            role: "Parent of College Student",
+            avatar: "DT"
         },
         {
-            quote: "Sana is not an LMS with Gen AI added. It's AI at its core.",
-            name: "Josh Bersin",
-            role: "The Josh Bersin Company",
-            avatar: "JB"
+            quote: "I recommend U.S. News to every family I work with. It's the most trusted source for college information.",
+            name: "Jennifer Park",
+            role: "College Admissions Consultant",
+            avatar: "JP"
+        },
+        {
+            quote: "The scholarship finder helped me discover opportunities I never would have found on my own. It made college affordable.",
+            name: "Marcus Williams",
+            role: "Junior at Georgia Tech",
+            avatar: "MW"
         }
     ];
 
     const partnershipServices = [
-        "Dedicated deployment lead",
-        "Complete implementation support",
-        "Tailored onboarding",
-        "Priority support",
-        "Content migration services",
-        "L&D strategy and consulting",
-        "Community, events, and resources"
+        "Transparent ranking methodology",
+        "Annual data verification process",
+        "Direct partnerships with 1,500+ institutions",
+        "Guidance counselor resources",
+        "Student success tracking",
+        "Regular methodology updates",
+        "Educational research and insights"
     ];
 
     const comparisons = [
         {
-            tag: "LEARNING MANAGEMENT",
-            left: "Manage learning through static course catalogs and scheduled sessions through manual admin",
-            right: "AI handles enrollments, scheduling, and updates automatically based on pre-configured rules"
+            tag: "DATA METHODOLOGY",
+            left: "User-generated reviews and crowdsourced ratings with limited verification",
+            right: "Rigorous methodology analyzing 17 factors including graduation rates, faculty resources, and peer assessment"
         },
         {
-            tag: "SKILLS MANAGEMENT",
-            left: "Build a taxonomy, market voluntary courses, and manage skills",
-            right: "AI monitors and designs learning experiences based on real-time, individual performance"
+            tag: "RANKING TRANSPARENCY",
+            left: "Opaque algorithms and unclear weighting of ranking factors",
+            right: "Fully transparent methodology published annually with detailed explanations of each ranking factor"
         },
         {
-            tag: "CONTENT CREATION",
-            left: "Design, create, and launch courses or programs based on scoped business partner requirements",
-            right: "AI generates content dynamically from source material in a formal suited to the learner's preferences"
+            tag: "SCHOOL COVERAGE",
+            left: "Limited data on smaller schools and regional institutions",
+            right: "Comprehensive rankings of 1,500+ institutions across all categories and regions"
         },
         {
-            tag: "JUST-IN-TIME LEARNING",
-            left: "Purchase and build out a separate wiki for users to find company-specific information",
-            right: "AI answers questions in natural language directly from the learning platform and cites sources"
+            tag: "EXPERT GUIDANCE",
+            left: "Generic college advice articles and test prep materials",
+            right: "Expert editorial team providing in-depth admissions guidance and scholarship strategies"
         },
         {
-            tag: "LEARNING ANALYTICS",
-            left: "Export data from LMS, upload it to a BI tool for analysis, share results with stakeholders",
-            right: "AI generates dashboards and answers performance questions in real time, instantly accessible to stakeholders"
+            tag: "DATA ACCURACY",
+            left: "Self-reported data with inconsistent verification",
+            right: "Direct partnerships with institutions and rigorous annual data verification process"
         }
     ];
 
     const faqs = [
-        "What can I use Sana Learn for?",
-        "Can I brand the platform for a unique experience?",
-        "Is the authoring built-in?",
-        "What types of content can we create and include?",
-        "Can I integrate Sana with my HRIS and CRM?",
-        "Can I automate enrollments?",
-        "Can we migrate existing content from other LMS platforms?",
-        "What is Sana Learn's pricing?",
-        "How secure will my company's knowledge and data be with Sana?"
+        "How does U.S. News calculate college rankings?",
+        "Are the rankings updated annually?",
+        "How can I compare schools side-by-side?",
+        "What factors should I consider beyond rankings?",
+        "How do I find scholarships that match my profile?",
+        "Can I trust the data provided by U.S. News?",
+        "How do I use rankings to create my college list?",
+        "What's the difference between national and regional rankings?",
+        "How can guidance counselors access U.S. News resources?"
     ];
 
 </script>
 
-<div class="font-sans text-gray-900 bg-white selection:bg-sana-lime selection:text-black">
+<div class="font-sans text-gray-900 bg-white selection:bg-primary-200 selection:text-black">
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-[1400px] mx-auto px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-2">
                 <!-- Logo Mark -->
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-black">
-                    <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="currentColor"/>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-600">
+                    <path opacity="0.5" d="M16.6765 3.05148C18.9425 3.05148 20.7794 4.88843 20.7794 7.15442C20.7794 9.42043 18.9425 11.2574 16.6765 11.2574H12.5735V7.15442C12.5735 4.88843 14.4105 3.05148 16.6765 3.05148Z" fill="currentColor"/>
+                    <path d="M3 7.15442C3 4.88843 4.83695 3.05148 7.10294 3.05148C9.36895 3.05148 11.2059 4.88843 11.2059 7.15442V11.2574H7.10294C4.83695 11.2574 3 9.42043 3 7.15442Z" fill="currentColor"/>
+                    <path d="M7.10294 20.8309C4.83695 20.8309 3 18.9939 3 16.7279C3 14.4619 4.83695 12.625 7.10294 12.625H11.2059V16.7279C11.2059 18.9939 9.36895 20.8309 7.10294 20.8309Z" fill="currentColor"/>
+                    <path d="M20.7794 16.7279C20.7794 18.9939 18.9425 20.8309 16.6765 20.8309C14.4105 20.8309 12.5735 18.9939 12.5735 16.7279V12.625H16.6765C18.9425 12.625 20.7794 14.4619 20.7794 16.7279Z" fill="currentColor"/>
                 </svg>
-                <span class="font-medium text-lg tracking-tight">Sana Learn</span>
+                <span class="font-medium text-lg tracking-tight">U.S. News</span>
             </div>
 
             <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
@@ -163,8 +165,8 @@
                 {/each}
             </div>
 
-            <button class="bg-sana-blue text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-colors">
-                Book an intro
+            <button class="bg-primary-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-primary-700 transition-colors">
+                Explore Rankings
             </button>
         </div>
     </nav>
@@ -173,13 +175,13 @@
     <section class="pt-20 pb-16 px-6 text-center overflow-hidden">
         <div class="max-w-4xl mx-auto mb-12">
             <h1 class="font-serif text-6xl md:text-7xl lg:text-[5rem] leading-[1.1] mb-6 font-normal tracking-tight">
-                The future of <br/> enterprise learning
+                Find your perfect <br/> college match
             </h1>
             <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8 leading-relaxed">
-                Sana Learn brings the best of an LMS, LXP, authoring tool, and virtual classroom into one AI-native learning platform.
+                Trusted rankings and expert guidance to help you compare schools, understand your options, and make the best decision for your future.
             </p>
-            <button class="bg-sana-lime text-black px-8 py-3 rounded-full text-base font-medium hover:bg-[#c2e600] transition-colors">
-                Book an intro
+            <button class="bg-primary-600 text-white px-8 py-3 rounded-full text-base font-medium hover:bg-primary-700 transition-colors">
+                Explore Rankings
             </button>
         </div>
 
@@ -239,8 +241,8 @@
                         <div class="bg-white w-full h-full rounded-[1.5rem] overflow-hidden p-2 flex flex-col">
                              <div class="h-4 w-20 bg-gray-100 rounded mx-auto mb-4 mt-2"></div>
                              <div class="flex-1 bg-gray-50 rounded-xl p-2">
-                                <div class="h-16 bg-sana-lime/20 rounded-lg mb-2"></div>
-                                <div class="h-16 bg-blue-50 rounded-lg mb-2"></div>
+                                <div class="h-16 bg-primary-50 rounded-lg mb-2 border border-primary-100"></div>
+                                <div class="h-16 bg-gray-100 rounded-lg mb-2"></div>
                              </div>
                         </div>
                     </div>
@@ -267,7 +269,7 @@
     <!-- Logos Section -->
     <section class="py-16 border-b border-gray-100">
         <div class="max-w-[1400px] mx-auto px-6 text-center">
-            <p class="text-sm text-gray-500 mb-10">Trusted by market leaders and innovators alike</p>
+            <p class="text-sm text-gray-500 mb-10">Ranking America's top universities and colleges</p>
             <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
                 {#each logos as logo}
                     <div class="h-8 flex items-center justify-center">
@@ -283,9 +285,9 @@
     <section class="py-24 px-6 bg-gray-50">
         <div class="max-w-[1400px] mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="font-serif text-5xl md:text-6xl mb-6">Meet Sana Learn</h2>
+                <h2 class="font-serif text-5xl md:text-6xl mb-6">Everything you need to choose the right school</h2>
                 <p class="text-lg text-gray-600 leading-relaxed">
-                    Say goodbye to fragmented learning tools. Sana Learn is the only platform designed to move you beyond one-size-fits-all content to a truly dynamic, personalized learning experience at scale.
+                    From comprehensive rankings to expert admissions advice, U.S. News provides the trusted data and insights that help millions of students find their perfect college match every year.
                 </p>
             </div>
 
@@ -293,7 +295,7 @@
                 {#each features as feature}
                     <div class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 flex flex-col h-[500px]">
                         <div class="p-8 pb-0 flex-1">
-                            <span class="inline-block bg-sana-lime text-[10px] font-bold tracking-wider px-2 py-1 rounded mb-4 uppercase">
+                            <span class="inline-block bg-primary-100 text-primary-800 text-[10px] font-bold tracking-wider px-2 py-1 rounded mb-4 uppercase">
                                 {feature.tag}
                             </span>
                             <h3 class="font-serif text-2xl leading-tight mb-4">
@@ -327,7 +329,7 @@
                             {:else if feature.image === 'search'}
                                  <div class="absolute bottom-[-40px] right-[-20px] w-full h-full bg-white shadow-lg rounded-tl-2xl p-6 border border-gray-100">
                                      <div class="flex items-center gap-3 mb-4 border-b pb-4">
-                                         <div class="w-8 h-8 bg-sana-lime rounded-full"></div>
+                                         <div class="w-8 h-8 bg-primary-600 rounded-full"></div>
                                          <div class="h-2 w-32 bg-gray-200 rounded"></div>
                                      </div>
                                      <div class="space-y-3">
@@ -352,9 +354,9 @@
     <section class="py-24 px-6 bg-white">
         <div class="max-w-[1400px] mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="font-serif text-5xl md:text-6xl mb-6">Loved by users, creators, <br/> and admins alike</h2>
+                <h2 class="font-serif text-5xl md:text-6xl mb-6">Trusted by students, <br/> parents, and counselors</h2>
                 <p class="text-lg text-gray-600 leading-relaxed mb-10">
-                    The modern learning experience everyone deserves. <br/> You don't have to choose between user-friendly and enterprise-ready.
+                    Over 40 million users rely on U.S. News to make one of life's most important decisions. <br/> See what they have to say about their experience.
                 </p>
                 <div class="flex justify-center gap-4">
                     <!-- G2 Badges Mockup -->
@@ -390,20 +392,20 @@
     <section class="py-24 px-6 bg-white border-t border-gray-100">
         <div class="max-w-[1400px] mx-auto">
              <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="font-serif text-5xl md:text-6xl mb-6">The proof is in <br/> the partnership</h2>
+                <h2 class="font-serif text-5xl md:text-6xl mb-6">Built on trust <br/> and transparency</h2>
                 <p class="text-lg text-gray-600 leading-relaxed">
-                    It isn't all about the technology. Organizations choose Sana <br/> because we're product-led and partnership-driven.
+                    Our rankings aren't just numbers. They're backed by rigorous methodology, <br/> direct partnerships with institutions, and decades of educational expertise.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="bg-gray-50 p-12 rounded-3xl h-full">
-                    <h3 class="font-serif text-2xl mb-8">Enterprise partnership services</h3>
+                    <h3 class="font-serif text-2xl mb-8">Our commitment to accuracy</h3>
                     <ul class="space-y-4">
                         {#each partnershipServices as service}
                             <li class="flex items-center gap-3">
-                                <div class="w-5 h-5 rounded-full bg-sana-lime flex items-center justify-center shrink-0">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                <div class="w-5 h-5 rounded-full bg-primary-600 flex items-center justify-center shrink-0">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                 </div>
                                 <span class="text-gray-700">{service}</span>
                             </li>
@@ -411,9 +413,9 @@
                     </ul>
                 </div>
                 <div class="h-full min-h-[500px] rounded-3xl overflow-hidden relative">
-                    <!-- Placeholder image for people collaborating -->
+                    <!-- Image of guidance counselor with students -->
                     <div class="absolute inset-0 bg-gray-200">
-                        <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center grayscale opacity-80 hover:grayscale-0 transition-all duration-700"></div>
+                        <img src="/generated/image-high-school-guidance-counselor-meeting-w-1765515681224-0.webp" alt="Guidance counselor meeting with students" class="w-full h-full object-cover" />
                     </div>
                 </div>
             </div>
@@ -424,7 +426,7 @@
     <section class="py-24 px-6 bg-white">
         <div class="max-w-[1400px] mx-auto">
             <div class="flex justify-between items-end mb-12">
-                <p class="text-lg text-gray-600 max-w-xl">Sana Learn is a fit for any industry. Read the results yourself.</p>
+                <p class="text-lg text-gray-600 max-w-xl">Real students, real success stories. See how U.S. News helped them find their perfect match.</p>
                 <div class="flex gap-2">
                     <button class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center hover:bg-gray-50">
                         ←
@@ -445,10 +447,10 @@
                     </div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-between text-white">
                         <div>
-                            <h3 class="font-serif text-3xl leading-tight mb-4">Polestar increases active users by 275%</h3>
-                            <div class="text-xs text-gray-300 uppercase tracking-wider">Employees: 3000 <br/> Industry: Automotive</div>
+                            <h3 class="font-serif text-3xl leading-tight mb-4">From 50 schools to the perfect fit in just weeks</h3>
+                            <div class="text-xs text-gray-300 uppercase tracking-wider">Student: Sarah M. <br/> Now at: UC Berkeley</div>
                         </div>
-                        <div class="font-bold text-xl">Polestar</div>
+                        <div class="font-bold text-xl">Engineering Major</div>
                     </div>
                 </div>
 
@@ -460,10 +462,10 @@
                     </div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-between text-white">
                         <div>
-                            <h3 class="font-serif text-3xl leading-tight mb-4">Superside cuts design time by 80% and leads an AI revolution</h3>
-                            <div class="text-xs text-gray-300 uppercase tracking-wider">Employees: 750 <br/> Industry: Design and Marketing</div>
+                            <h3 class="font-serif text-3xl leading-tight mb-4">Found $40K in scholarships using the scholarship finder</h3>
+                            <div class="text-xs text-gray-300 uppercase tracking-wider">Student: Marcus W. <br/> Now at: Georgia Tech</div>
                         </div>
-                        <div class="font-bold text-xl">Superside</div>
+                        <div class="font-bold text-xl">Computer Science</div>
                     </div>
                 </div>
 
@@ -475,10 +477,10 @@
                     </div>
                     <div class="absolute inset-0 p-8 flex flex-col justify-between text-white">
                         <div>
-                            <h3 class="font-serif text-3xl leading-tight mb-4">Ahlsell accelerates course creation...</h3>
-                            <div class="text-xs text-gray-300 uppercase tracking-wider">Employees: 7500 <br/> Industry: Wholesale</div>
+                            <h3 class="font-serif text-3xl leading-tight mb-4">Helped 200+ students find their dream schools</h3>
+                            <div class="text-xs text-gray-300 uppercase tracking-wider">Counselor: Michael C. <br/> School: Lincoln High</div>
                         </div>
-                        <div class="font-bold text-xl">ahlsell</div>
+                        <div class="font-bold text-xl">Guidance Counselor</div>
                     </div>
                 </div>
             </div>
@@ -489,17 +491,17 @@
     <section class="py-24 px-6 bg-white">
         <div class="max-w-[1400px] mx-auto">
              <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="font-serif text-5xl md:text-6xl mb-6">AI is not an add-on. <br/> It's what we do.</h2>
+                <h2 class="font-serif text-5xl md:text-6xl mb-6">Why U.S. News <br/> stands apart</h2>
                 <p class="text-lg text-gray-600 leading-relaxed">
-                    AI-first L&D can transform your team from a content delivery <br/> machine to a strategic value-driver.
+                    Not all college rankings are created equal. See how our rigorous methodology <br/> and transparent approach set us apart from the competition.
                 </p>
             </div>
 
             <div class="border-t border-gray-100">
                 <div class="grid grid-cols-3 py-4 text-xs text-gray-400 uppercase tracking-wider border-b border-gray-100">
-                    <div>Status quo</div>
+                    <div>Other Rankings</div>
                     <div class="text-center">→</div>
-                    <div>Sana Learn</div>
+                    <div>U.S. News</div>
                 </div>
                 {#each comparisons as item}
                     <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 py-12 border-b border-gray-100 items-center group hover:bg-gray-50 transition-colors px-4 -mx-4 rounded-xl">
@@ -507,7 +509,7 @@
                             {item.left}
                         </div>
                         <div class="flex justify-center">
-                            <span class="bg-sana-lime text-[10px] font-bold tracking-wider px-2 py-1 rounded uppercase whitespace-nowrap">
+                            <span class="bg-primary-100 text-primary-800 text-[10px] font-bold tracking-wider px-2 py-1 rounded uppercase whitespace-nowrap">
                                 {item.tag}
                             </span>
                         </div>
@@ -524,41 +526,41 @@
     <section class="py-24 px-6 bg-white">
         <div class="max-w-[1400px] mx-auto">
              <div class="text-center max-w-3xl mx-auto mb-20">
-                <h2 class="font-serif text-5xl md:text-6xl mb-6">Enterprise-grade <br/> integrations and security</h2>
+                <h2 class="font-serif text-5xl md:text-6xl mb-6">Comprehensive data <br/> from trusted sources</h2>
                 <p class="text-lg text-gray-600 leading-relaxed">
-                    We take this stuff as seriously as you do.
+                    Our rankings are built on verified data from institutions and rigorous analysis.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <!-- Integrations -->
+                <!-- Data Sources -->
                 <div>
                     <div class="text-center mb-8">
-                        <span class="bg-sana-lime text-[10px] font-bold tracking-wider px-2 py-1 rounded uppercase">
-                            PLAYS NICE WITH YOUR FAVORITE TOOLS
+                        <span class="bg-primary-100 text-primary-800 text-[10px] font-bold tracking-wider px-2 py-1 rounded uppercase">
+                            17 RANKING FACTORS ANALYZED
                         </span>
                     </div>
                     <div class="grid grid-cols-4 gap-6">
-                        {#each ['Google Drive', 'Teams', 'Slack', 'Salesforce', 'Coursera', 'Edcast', 'Degreed', 'HiBob', 'Workday', 'Personio', 'SAP Litmos', 'Okta'] as tool}
+                        {#each ['Graduation rates', 'Faculty resources', 'Student excellence', 'Financial resources', 'Alumni giving', 'Peer assessment', 'Retention rates', 'Class size', 'SAT/ACT scores', 'Acceptance rate', 'Graduate outcomes', 'Social mobility'] as tool}
                             <div class="aspect-square bg-gray-50 rounded-xl flex flex-col items-center justify-center p-4 hover:bg-gray-100 transition-colors">
-                                <div class="w-8 h-8 bg-gray-200 rounded-full mb-2"></div> <!-- Icon Placeholder -->
+                                <div class="w-8 h-8 bg-primary-200 rounded-full mb-2"></div> <!-- Icon Placeholder -->
                                 <span class="text-[10px] text-center text-gray-600 font-medium">{tool}</span>
                             </div>
                         {/each}
                     </div>
                 </div>
 
-                <!-- Security -->
+                <!-- Resources -->
                 <div>
                     <div class="text-center mb-8">
-                        <span class="bg-sana-lime text-[10px] font-bold tracking-wider px-2 py-1 rounded uppercase">
-                            SECURITY YOU CAN STAND BY
+                        <span class="bg-primary-100 text-primary-800 text-[10px] font-bold tracking-wider px-2 py-1 rounded uppercase">
+                            RESOURCES FOR YOUR JOURNEY
                         </span>
                     </div>
                     <div class="grid grid-cols-4 gap-6">
-                         {#each ['Custom user roles', 'User provisioning', 'Advanced permissions', 'Flexible groups', 'SOC 2 Type 2', 'GDPR compliant', 'ISO 27001', 'SCORM compliant', 'SAML single sign-on', '2FA with email codes', 'Regional deploys', 'Audit logging'] as item}
+                         {#each ['College search', 'Compare schools', 'Scholarship finder', 'Admissions advice', 'Financial aid guide', 'Major explorer', 'Campus life info', 'Application tips', 'Essay guidance', 'Test prep resources', 'Career outcomes', 'Student reviews'] as item}
                             <div class="aspect-square bg-gray-50 rounded-xl flex flex-col items-center justify-center p-2 hover:bg-gray-100 transition-colors">
-                                <div class="w-6 h-6 border-2 border-gray-300 rounded mb-2"></div> <!-- Icon Placeholder -->
+                                <div class="w-6 h-6 border-2 border-primary-300 rounded mb-2"></div> <!-- Icon Placeholder -->
                                 <span class="text-[10px] text-center text-gray-600 font-medium leading-tight">{item}</span>
                             </div>
                         {/each}
@@ -573,17 +575,17 @@
         <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
             <div class="bg-white relative flex items-center justify-center p-12 overflow-hidden">
                 <div class="flex gap-4 transform -rotate-6 scale-90">
-                    <div class="w-64 h-80 bg-[#00D166] flex items-center justify-center text-white font-bold text-4xl shadow-2xl">FAST COMPANY</div>
-                    <div class="w-64 h-80 bg-black flex items-center justify-center text-white font-bold text-4xl shadow-2xl z-10 -mt-12">Forbes</div>
-                    <div class="w-64 h-80 bg-[#4CA6FF] flex items-center justify-center text-white font-bold text-4xl shadow-2xl">FAST COMPANY</div>
+                    <div class="w-64 h-80 bg-gray-800 flex items-center justify-center text-white font-bold text-4xl shadow-2xl">THE WALL STREET JOURNAL</div>
+                    <div class="w-64 h-80 bg-primary-600 flex items-center justify-center text-white font-bold text-4xl shadow-2xl z-10 -mt-12">U.S. NEWS</div>
+                    <div class="w-64 h-80 bg-gray-900 flex items-center justify-center text-white font-bold text-4xl shadow-2xl">THE NEW YORK TIMES</div>
                 </div>
             </div>
-            <div class="bg-sana-lime p-12 lg:p-24 flex flex-col justify-center">
+            <div class="bg-primary-50 p-12 lg:p-24 flex flex-col justify-center">
                 <p class="font-serif text-3xl md:text-4xl leading-tight mb-8">
-                    Sana has been on a mission to transform how organizations learn and access knowledge with AI since 2016.
+                    For over 40 years, U.S. News has been the trusted source for college rankings and educational guidance.
                 </p>
                 <p class="font-serif text-3xl md:text-4xl leading-tight">
-                    We have pioneered the application of AI to learning experiences, content creation, learning management, and learning analytics. We believe the best is yet to come.
+                    We've helped millions of students find their perfect college match through comprehensive data analysis, transparent methodology, and expert insights. Our commitment to accuracy and trust continues to guide families through one of life's most important decisions.
                 </p>
             </div>
         </div>
@@ -592,10 +594,10 @@
     <!-- Bottom CTA -->
     <section class="py-32 px-6 text-center bg-white">
         <div class="max-w-4xl mx-auto">
-            <h2 class="font-serif text-6xl md:text-7xl mb-6">The future of <br/> learning is here.</h2>
-            <p class="text-xl text-gray-600 mb-10">Will you join us?</p>
-            <button class="bg-sana-lime text-black px-8 py-3 rounded-full text-base font-medium hover:bg-[#c2e600] transition-colors">
-                Book an intro
+            <h2 class="font-serif text-6xl md:text-7xl mb-6">Your college journey <br/> starts here.</h2>
+            <p class="text-xl text-gray-600 mb-10">Join 40 million students finding their perfect match.</p>
+            <button class="bg-primary-600 text-white px-8 py-3 rounded-full text-base font-medium hover:bg-primary-700 transition-colors">
+                Explore Rankings
             </button>
         </div>
     </section>
@@ -622,63 +624,66 @@
         <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
             <div class="col-span-1 md:col-span-1">
                 <div class="flex items-center gap-2 mb-8">
-                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-black">
-                        <path d="M12 0L14.5 9.5L24 12L14.5 14.5L12 24L9.5 14.5L0 12L9.5 9.5L12 0Z" fill="currentColor"/>
+                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-primary-600">
+                        <path opacity="0.5" d="M16.6765 3.05148C18.9425 3.05148 20.7794 4.88843 20.7794 7.15442C20.7794 9.42043 18.9425 11.2574 16.6765 11.2574H12.5735V7.15442C12.5735 4.88843 14.4105 3.05148 16.6765 3.05148Z" fill="currentColor"/>
+                        <path d="M3 7.15442C3 4.88843 4.83695 3.05148 7.10294 3.05148C9.36895 3.05148 11.2059 4.88843 11.2059 7.15442V11.2574H7.10294C4.83695 11.2574 3 9.42043 3 7.15442Z" fill="currentColor"/>
+                        <path d="M7.10294 20.8309C4.83695 20.8309 3 18.9939 3 16.7279C3 14.4619 4.83695 12.625 7.10294 12.625H11.2059V16.7279C11.2059 18.9939 9.36895 20.8309 7.10294 20.8309Z" fill="currentColor"/>
+                        <path d="M20.7794 16.7279C20.7794 18.9939 18.9425 20.8309 16.6765 20.8309C14.4105 20.8309 12.5735 18.9939 12.5735 16.7279V12.625H16.6765C18.9425 12.625 20.7794 14.4619 20.7794 16.7279Z" fill="currentColor"/>
                     </svg>
-                    <span class="font-medium text-xl tracking-tight">Sana</span>
+                    <span class="font-medium text-xl tracking-tight">U.S. News</span>
                 </div>
-                <div class="text-sm text-gray-500 mb-4">Subscribe to our newsletter</div>
+                <div class="text-sm text-gray-500 mb-4">Get college insights delivered</div>
                 <div class="flex gap-2 border-b border-gray-200 pb-2 mb-8">
                     <input type="email" placeholder="Email address" class="w-full outline-none text-sm" />
                     <button class="text-gray-400 hover:text-black">→</button>
                 </div>
-                <div class="text-xs text-gray-400">© Sana Labs AB 2025</div>
+                <div class="text-xs text-gray-400">© U.S. News & World Report 2025</div>
             </div>
 
             <div class="grid grid-cols-2 md:grid-cols-3 gap-8 col-span-1 md:col-span-3">
                 <div>
-                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">Sana Agents</h4>
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">Rankings</h4>
                     <ul class="space-y-3 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-black">Overview</a></li>
-                        <li><a href="#" class="hover:text-black">AI agents</a></li>
-                        <li><a href="#" class="hover:text-black">Enterprise search</a></li>
-                        <li><a href="#" class="hover:text-black">iOS app</a></li>
-                        <li><a href="#" class="hover:text-black">Solutions</a></li>
-                        <li><a href="#" class="hover:text-black">Integrations</a></li>
-                        <li><a href="#" class="hover:text-black">Events</a></li>
-                        <li><a href="#" class="hover:text-black">Security</a></li>
-                        <li><a href="#" class="hover:text-black">Stories</a></li>
-                        <li><a href="#" class="hover:text-black">Pricing</a></li>
-                        <li><a href="#" class="hover:text-black">Help Center</a></li>
+                        <li><a href="#" class="hover:text-black">Best Colleges</a></li>
+                        <li><a href="#" class="hover:text-black">National Universities</a></li>
+                        <li><a href="#" class="hover:text-black">Liberal Arts Colleges</a></li>
+                        <li><a href="#" class="hover:text-black">Regional Universities</a></li>
+                        <li><a href="#" class="hover:text-black">Best Value Schools</a></li>
+                        <li><a href="#" class="hover:text-black">Online Programs</a></li>
+                        <li><a href="#" class="hover:text-black">Graduate Schools</a></li>
+                        <li><a href="#" class="hover:text-black">Business Schools</a></li>
+                        <li><a href="#" class="hover:text-black">Medical Schools</a></li>
+                        <li><a href="#" class="hover:text-black">Law Schools</a></li>
+                        <li><a href="#" class="hover:text-black">Methodology</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">Sana Learn</h4>
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">Resources</h4>
                     <ul class="space-y-3 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-black">Overview</a></li>
-                        <li><a href="#" class="hover:text-black">Learning management</a></li>
-                        <li><a href="#" class="hover:text-black">Content creation</a></li>
-                        <li><a href="#" class="hover:text-black">AI tutor</a></li>
-                        <li><a href="#" class="hover:text-black">Solutions</a></li>
-                        <li><a href="#" class="hover:text-black">Partner stories</a></li>
-                        <li><a href="#" class="hover:text-black">Integrations</a></li>
-                        <li><a href="#" class="hover:text-black">Events</a></li>
-                        <li><a href="#" class="hover:text-black">Pricing</a></li>
-                        <li><a href="#" class="hover:text-black">Help Center</a></li>
-                        <li><a href="#" class="hover:text-black">Changelog</a></li>
+                        <li><a href="#" class="hover:text-black">College Search</a></li>
+                        <li><a href="#" class="hover:text-black">Compare Schools</a></li>
+                        <li><a href="#" class="hover:text-black">Scholarship Finder</a></li>
+                        <li><a href="#" class="hover:text-black">Financial Aid Guide</a></li>
+                        <li><a href="#" class="hover:text-black">Admissions Calculator</a></li>
+                        <li><a href="#" class="hover:text-black">Major Explorer</a></li>
+                        <li><a href="#" class="hover:text-black">Campus Tours</a></li>
+                        <li><a href="#" class="hover:text-black">Student Reviews</a></li>
+                        <li><a href="#" class="hover:text-black">Application Tips</a></li>
+                        <li><a href="#" class="hover:text-black">Test Prep</a></li>
+                        <li><a href="#" class="hover:text-black">Career Outcomes</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">Company</h4>
+                    <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-6">About</h4>
                     <ul class="space-y-3 text-sm text-gray-600">
-                        <li><a href="#" class="hover:text-black">Hexad Releases</a></li>
-                        <li><a href="#" class="hover:text-black">Swedish AI Reform</a></li>
-                        <li><a href="#" class="hover:text-black">Strange Loop Podcast</a></li>
-                        <li><a href="#" class="hover:text-black">Mission</a></li>
+                        <li><a href="#" class="hover:text-black">About U.S. News</a></li>
+                        <li><a href="#" class="hover:text-black">Editorial Guidelines</a></li>
+                        <li><a href="#" class="hover:text-black">Education Team</a></li>
+                        <li><a href="#" class="hover:text-black">Advertise</a></li>
                         <li><a href="#" class="hover:text-black">Careers</a></li>
                         <li><a href="#" class="hover:text-black">Press</a></li>
-                        <li><a href="#" class="hover:text-black">Legal</a></li>
-                        <li><a href="#" class="hover:text-black">Cookie settings</a></li>
+                        <li><a href="#" class="hover:text-black">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-black">Privacy Policy</a></li>
                     </ul>
                 </div>
             </div>
